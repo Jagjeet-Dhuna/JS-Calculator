@@ -5,31 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>myCalculator</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="container">
-        <div class="display">01010</div>
+        <div data-ops class="display" id="display">0</div>
         <div class="keys">
-            <button>+</button>
-            <button>-</button>
-            <button>x</button>
-            <button>÷</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
-            <button>⌫</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>AC</button>
-            <button>1</button>
-            <button>2</button>
-            <button>3</button>
-            <button class="equals">=</button>
-            <button>%</button>
-            <button>0</button>
-            <button>.</button>
+            <button data-operation>+</button>
+            <button data-operation>-</button>
+            <button data-operation>x</button>
+            <button data-operation>÷</button>
+            <button data-number>7</button>
+            <button data-number>8</button>
+            <button data-number>9</button>
+            <button data-del>⌫</button>
+            <button data-number>4</button>
+            <button data-number>5</button>
+            <button data-number>6</button>
+            <button data-ac>AC</button>
+            <button data-number>1</button>
+            <button data-number>2</button>
+            <button data-number>3</button>
+            <button data-equals class="equals" >=</button>
+            <button data-operation>%</button>
+            <button data-number>0</button>
+            <button data-number>.</button>
         </div>
     </div>
 </body>
