@@ -1,4 +1,4 @@
-class Cal {
+class Calculator {
     constructor(disOutput){
         this.disOutput = disOutput
         this.clear()
@@ -22,7 +22,7 @@ class Cal {
     }
 
     updateDisplay(){
-        this.disOutput.innerText
+        this.disOutput.innerText =
     }
 }
 
@@ -36,7 +36,7 @@ const acBtn = document.querySelector('[data-ac]')
 const disOutput = document.querySelector('[data-ops]')
 
 
-const Cal = new Cal(disOutput)
+const Calculator = new Cal(disOutput)
 
 numbBtn.forEach(button => {
     button.addEventListener('click', () => {
