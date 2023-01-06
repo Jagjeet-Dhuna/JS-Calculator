@@ -1,50 +1,145 @@
-class Calculator {
-    constructor(disOutput){
-        this.disOutput = disOutput
-        this.clear()
-    }
+let x = ''; //first entered value 
+let y = ''; //second emtred value 
+let z = ''; //the total sum value of both values
+let dec = false; //does a value have a decimal point
 
-    clear(){
-        this.disOutput = ''
-        this.operation = undefined
-    }
+let isAdd = false; 
+let isMin = false;
+let isMul = false; 
+let isDiv = false;
+let isPer = false; 
+let hasDec = false; 
 
-    delete(){
+let display = document.getElementById('display'); 
 
-    }
-
-    appendNumber(number){
-
-    }
-
-    compute(operation){
-
-    }
-
-    updateDisplay(){
-        this.disOutput.innerText =
-    }
-}
-
-const numbBtn =  document.querySelectorAll('[data-number]')
-const opsBtn = document.querySelectorAll('[data-operation]')
-
-const eqlBtn = document.querySelector('[data-equals')
-const delBtn = document.querySelector('[data-del]')
-const acBtn = document.querySelector('[data-ac]')
-
-const disOutput = document.querySelector('[data-ops]')
+let NumberButtons = Array.from(document.getElementsByClassName('num-data'));
 
 
-const Calculator = new Cal(disOutput)
+NumberButtons.map( NumberButtons => {
+    NumberButtons.addEventListener('click', (e) => {
+        switch(e.target.innerText){
+            default:
+                display.innerHTML += e.target.innerText;
 
-numbBtn.forEach(button => {
-    button.addEventListener('click', () => {
-        Cal.appendNumber(button.innerText)
-        Cal.updateDisplay()
+                
+        }
     })
 })
 
+if (x, y, z == ''){
+    document.getElementById('add-data').setAttribute('disabled', 'disabled');
+    document.getElementById('min-data').setAttribute('disabled', 'disabled');
+    document.getElementById('mul-data').setAttribute('disabled', 'disabled');
+    document.getElementById('div-data').setAttribute('disabled', 'disabled');
+} else {
+    document.getElementById('add-data').removeAttribute('disabled', 'disabled');
+    document.getElementById('min-data').removeAttribute('disabled', 'disabled');
+    document.getElementById('mul-data').removeAttribute('disabled', 'disabled');
+    document.getElementById('div-data').removeAttribute('disabled', 'disabled');
+}
 
 
-//  https://www.youtube.com/watch?v=j59qQ7YWLxw&t=992s&ab_channel=WebDevSimplified
+//     document.getElementById('add-data').removeAttribute('disabled', 'disabled');
+//     document.getElementById('min-data').removeAttribute('disabled', 'disabled');
+//     document.getElementById('mul-data').removeAttribute('disabled', 'disabled');
+//     document.getElementById('div-data').removeAttribute('disabled', 'disabled');
+// }
+    // document.getElementById('add-data').removeAttribute('disabled', 'disabled');
+    // document.getElementById('min-data').removeAttribute('disabled', 'disabled');
+    // document.getElementById('mul-data').removeAttribute('disabled', 'disabled');
+    // document.getElementById('div-data').removeAttribute('disabled', 'disabled');
+
+//--------------------------------------------------------------------------------------------//
+function defaultVal() {
+    document.getElementById('decimal').removeAttribute('disabled', 'disabled')
+
+
+    x = display.innerText;
+    display.innerHTML = '';
+}
+
+function clearAll() {
+    document.getElementById('decimal').removeAttribute('disabled', 'disabled')
+    display.innerText = '';
+    x = '';
+    y = '';
+    z = '';
+}
+
+function deleteLast() {
+    display.innerText = display.innerText.slice(0,-1);
+
+    if (display.innerText.includes('.') == false) {
+        document.getElementById('decimal').removeAttribute('disabled', 'disabled');
+    }
+}
+
+function decimal() {
+
+    if (display.innerHTML == '') {
+        display.innerHTML = '0'
+    }
+
+    document.getElementById('decimal').setAttribute('disabled', 'disabled'); 
+
+}
+
+
+function addition() {
+    isMin, isMul, isDiv, isPer = false;
+    isAdd = true;
+
+    defaultVal()
+}
+
+function subtraction() {
+    defaultVal()
+    isAdd, isMul, isDiv, isPer = false;
+    isMin = true;
+}
+
+function multiplication() {
+    defaultVal()
+    isAdd, isMin, isDiv, isPer = false;
+    isMul = true; 
+}
+
+function division() {
+    defaultVal()
+    isAdd, isMin, isMul, isPer = false;
+    isDiv = true;
+}
+
+function equals() {
+    y = display.innerText;
+    let x1 = parseFloat(x);
+    let y1 = parseFloat(y);
+    document.getElementById('decimal').removeAttribute('disabled', 'disabled')
+    if(isAdd == true) {
+    z = x1 + y1;
+    };
+
+    if(isMin == true) { 
+        z = x - y
+    }
+
+    if(isMul == true) { 
+        z = x * y
+    }
+
+    if(isDiv == true) { 
+        z = x / y
+    }
+
+    if (display.innerText.includes('.') == true && z == null) {
+        console.log("fas")
+        document.getElementById('decimal').setAttribute('disabled', 'disabled');
+    } else if(z !==null && display.innerText.includes('.')) {
+        document.getElementById('decimal').setAttribute('disabled', 'disabled');
+    }
+    else {
+        document.getElementById('decimal').removeAttribute('disabled', 'disabled');
+    }
+
+    display.innerText = z;
+}

@@ -5,31 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>myCalculator</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
     <div class="container">
-        <div data-ops class="display" id="display">0</div>
+        <div data-ops class="display" id="display"></div>
         <div class="keys">
-            <button data-operation>+</button>
-            <button data-operation>-</button>
-            <button data-operation>x</button>
-            <button data-operation>÷</button>
-            <button data-number>7</button>
-            <button data-number>8</button>
-            <button data-number>9</button>
-            <button data-delete>⌫</button>
-            <button data-number>4</button>
-            <button data-number>5</button>
-            <button data-number>6</button>
-            <button data-ac>AC</button>
-            <button data-number>1</button>
-            <button data-number>2</button>
-            <button data-number>3</button>
-            <button data-equals class="equals" >=</button>
-            <button data-operation>%</button>
-            <button data-number>0</button>
-            <button data-number>.</button>
+            <button id="add-data" onclick="addition()">+</button>
+            <button id="min-data" onclick="subtraction()">-</button>
+            <button id="mul-data" onclick="multiplication()">x</button>
+            <button id="div-data" onclick="division()">÷</button>
+
+            <button class="num-data">7</button>
+            <button class="num-data">8</button>
+            <button class="num-data">9</button>
+            <button class="del-data" onclick="deleteLast()">DEL</button>
+
+            <button class="num-data">4</button>
+            <button class="num-data">5</button>
+            <button class="num-data">6</button>
+            <button class="ac-data" onclick="clearAll()">AC</button>
+
+            <button class="num-data">1</button>
+            <button class="num-data">2</button>
+            <button num-data class="num-data">3</button>
+            <button class="equals" onclick="equals()">=</button>
+
+            <button class="div-data">%</button>
+            <button class="num-data">0</button>
+            <button id="decimal" class="num-data" onclick="decimal()">.</button>
         </div>
     </div>
 </body>
