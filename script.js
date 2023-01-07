@@ -14,43 +14,36 @@ let display = document.getElementById('display');
 
 let NumberButtons = Array.from(document.getElementsByClassName('num-data'));
 
-
-NumberButtons.map( NumberButtons => {
-    NumberButtons.addEventListener('click', (e) => {
-        switch(e.target.innerText){
-            default:
-                display.innerHTML += e.target.innerText;
-
-                
-        }
-    })
-})
-
-if (x, y, z == ''){
+function sum() {
     document.getElementById('add-data').setAttribute('disabled', 'disabled');
     document.getElementById('min-data').setAttribute('disabled', 'disabled');
     document.getElementById('mul-data').setAttribute('disabled', 'disabled');
     document.getElementById('div-data').setAttribute('disabled', 'disabled');
-} else {
+}
+
+function notSum() {
     document.getElementById('add-data').removeAttribute('disabled', 'disabled');
     document.getElementById('min-data').removeAttribute('disabled', 'disabled');
     document.getElementById('mul-data').removeAttribute('disabled', 'disabled');
     document.getElementById('div-data').removeAttribute('disabled', 'disabled');
 }
 
+NumberButtons.map( NumberButtons => {
+    NumberButtons.addEventListener('click', (e) => {
+        switch(e.target.innerText){
+            default:
+                display.innerHTML += e.target.innerText;
+                notSum();                
+        }
+    })
+})
 
-//     document.getElementById('add-data').removeAttribute('disabled', 'disabled');
-//     document.getElementById('min-data').removeAttribute('disabled', 'disabled');
-//     document.getElementById('mul-data').removeAttribute('disabled', 'disabled');
-//     document.getElementById('div-data').removeAttribute('disabled', 'disabled');
-// }
-    // document.getElementById('add-data').removeAttribute('disabled', 'disabled');
-    // document.getElementById('min-data').removeAttribute('disabled', 'disabled');
-    // document.getElementById('mul-data').removeAttribute('disabled', 'disabled');
-    // document.getElementById('div-data').removeAttribute('disabled', 'disabled');
 
 //--------------------------------------------------------------------------------------------//
+
+
 function defaultVal() {
+    
     document.getElementById('decimal').removeAttribute('disabled', 'disabled')
 
 
@@ -59,7 +52,8 @@ function defaultVal() {
 }
 
 function clearAll() {
-    document.getElementById('decimal').removeAttribute('disabled', 'disabled')
+    console.log('clearAll')
+    
     display.innerText = '';
     x = '';
     y = '';
@@ -84,27 +78,34 @@ function decimal() {
 
 }
 
+function save() {
+document.getElementById('save-display').textContent = display.innerText;
+
+}
 
 function addition() {
+    sum()
+    defaultVal()
     isMin, isMul, isDiv, isPer = false;
     isAdd = true;
-
-    defaultVal()
 }
 
 function subtraction() {
+    sum()
     defaultVal()
     isAdd, isMul, isDiv, isPer = false;
     isMin = true;
 }
 
 function multiplication() {
+    sum()
     defaultVal()
     isAdd, isMin, isDiv, isPer = false;
     isMul = true; 
 }
 
 function division() {
+    sum()
     defaultVal()
     isAdd, isMin, isMul, isPer = false;
     isDiv = true;
@@ -132,7 +133,6 @@ function equals() {
     }
 
     if (display.innerText.includes('.') == true && z == null) {
-        console.log("fas")
         document.getElementById('decimal').setAttribute('disabled', 'disabled');
     } else if(z !==null && display.innerText.includes('.')) {
         document.getElementById('decimal').setAttribute('disabled', 'disabled');
@@ -140,6 +140,8 @@ function equals() {
     else {
         document.getElementById('decimal').removeAttribute('disabled', 'disabled');
     }
+
+    
 
     display.innerText = z;
 }

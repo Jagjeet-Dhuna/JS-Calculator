@@ -20,6 +20,24 @@ body {
     min-height: 35px;
 }
 
+.save-display {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 280px;
+    overflow: hidden;
+    border-radius: 10px;
+
+    background-color: #ffffff;
+    color: #222222;
+    font-family: Cascadia Code, serif;
+    font-size: 30px;
+    padding: 10px;
+    padding-left: 10px;
+    text-align: right;
+    min-height: 20px;
+}
+
 .keys {
     display: grid;
     grid-template-columns: repeat(4, 75px);
